@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/style.css";
 
-export default function Intro() {
+function Intro() {
   let [name, setName] = useState("");
   let [purpose, setPurpose] = useState("");
 
@@ -15,13 +15,14 @@ export default function Intro() {
 
   return (
     <div className="intro">
+      <h1>Introduction</h1>
       <IntroNameInput name={name} handleNameChange={handleNameChange} />
-      <IntroNameRender name={name} />
+      {/* <IntroNameRender name={name} /> */}
       <IntroPurposeInput
         purpose={purpose}
         handlePurposeChange={handlePurposeChange}
       />
-      <IntroPurposeRender purpose={purpose} />
+      {/* <IntroPurposeRender purpose={purpose} /> */}
     </div>
   );
 }
@@ -29,7 +30,7 @@ export default function Intro() {
 function IntroNameInput({ name, handleNameChange }) {
   return (
     <div className="intro-name-input">
-      <div>
+      <div className="intro-container">
         <label htmlFor="name">Name: </label>
         <input
           type="text"
@@ -45,10 +46,10 @@ function IntroNameInput({ name, handleNameChange }) {
 function IntroPurposeInput({ purpose, handlePurposeChange }) {
   return (
     <div className="intro-purpose-input">
-      <div>
+      <div className="intro-container">
         <label htmlFor="purpose">Purpose of writing: </label>
-        <input
-          type="text"
+        <textarea
+          rows={10}
           placeholder="Please, enter the purpose for writing this letter:"
           value={purpose}
           onChange={handlePurposeChange}
@@ -73,3 +74,5 @@ function IntroPurposeRender({ purpose }) {
     </div>
   );
 }
+
+export {Intro, IntroNameRender, IntroPurposeRender}

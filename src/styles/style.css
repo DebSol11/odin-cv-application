@@ -1,3 +1,20 @@
+* {
+    outline: 1px solid green;
+}
+
 .intro {
     display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.intro-container  {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.intro-container input,
+.intro-container textarea {
+    width: 30vw;
 }

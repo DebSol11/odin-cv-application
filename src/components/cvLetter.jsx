@@ -1,7 +1,13 @@
-import Intro from "./components/introduction";
+import { Intro } from "./introduction";
+import { IntroNameRender } from "./introduction";
+import { IntroPurposeRender } from "./introduction";
 
-export default function renderIntro() {
-    return (
-        <h1>{name}</h1>
-    )
+export default function IntroRender({ name, purpose }) {
+  return (
+    <>
+      <Intro />
+      <IntroNameRender name={name} />
+      <IntroPurposeRender purpose={purpose} />
+    </>
+  );
 }
