@@ -2,19 +2,28 @@
     outline: 1px solid green;
 }
 
+.main-container {
+    display: flex;
+}
+
 .intro {
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 100vw;
 }
 
 .intro-container  {
     display: flex;
     justify-content: space-between;
     align-items: start;
+    width: 40vw;
 }
 
 .intro-container input,
 .intro-container textarea {
-    width: 30vw;
+    width: 20vw;
+}
+
+.flex-container {
+    display: flex;
 }

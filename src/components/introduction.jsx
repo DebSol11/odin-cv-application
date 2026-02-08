@@ -14,15 +14,37 @@ function Intro() {
   }
 
   return (
-    <div className="intro">
-      <h1>Introduction</h1>
-      <IntroNameInput name={name} handleNameChange={handleNameChange} />
-      {/* <IntroNameRender name={name} /> */}
-      <IntroPurposeInput
-        purpose={purpose}
-        handlePurposeChange={handlePurposeChange}
-      />
-      {/* <IntroPurposeRender purpose={purpose} /> */}
+    <div className="main-container">
+      <div className="intro">
+        <h1>Introduction</h1>
+        <div className="flex-container">
+          <IntroNameInput name={name} handleNameChange={handleNameChange} />
+        </div>
+        <div className="flex-container">
+          <IntroPurposeInput
+            purpose={purpose}
+            handlePurposeChange={handlePurposeChange}
+          />
+        </div>
+      </div>
+      <div className="intro-render">
+        <TemplateA4 name={name} purpose={purpose}/>
+      </div>
+    </div>
+  );
+}
+
+function TemplateA4({ name, purpose }) {
+  return (
+    <div class="a4-page">
+      <h1>{name}</h1>
+      <p>
+        {purpose}
+      </p>
+      <p>
+        Additional text can be included to further illustrate the layout and
+        styling.
+      </p>
     </div>
   );
 }
@@ -75,4 +97,4 @@ function IntroPurposeRender({ purpose }) {
   );
 }
 
-export {Intro, IntroNameRender, IntroPurposeRender}
+export { Intro, IntroNameRender, IntroPurposeRender };
