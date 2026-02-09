@@ -1,15 +1,5 @@
 * {
-    outline: 1px solid green;
-}
-
-.main-container {
-    display: flex;
-}
-
-.intro {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
+    /* outline: 1px solid green; */
 }
 
 .intro-container  {

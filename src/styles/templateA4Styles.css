@@ -1,4 +1,12 @@
 .a4-page {
+  display: grid;
+  grid-template-areas:
+    "none contact"
+    "intro intro"
+    "edu edu"
+    "exp exp"
+    "footer footer";
+  grid-template-columns: 2fr 1fr;
   width: 210mm;
   height: 297mm;
   margin: 20px auto;
@@ -9,7 +17,49 @@
   border: 1px solid #ddd;
 }
 
-h1,
-p {
-  margin: 0 0 10px;
+body {
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Times New Roman", serif;
+}
+
+h2 {
+  background-image: linear-gradient(to right, rgb(207, 207, 207), rgba(255, 255, 255, 0.534));
+}
+
+.contact-container {
+  grid-area: contact;
+  padding-right: 3vw;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  margin-bottom: 0.5vw;
+}
+
+.intro {
+  grid-area: intro;
+}
+
+.edu {
+  grid-area: edu;
+}
+
+.exp {
+  grid-area: exp;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  text-align: right;
+  grid-area: footer;
+  color: #acacac;
 }
