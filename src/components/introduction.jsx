@@ -29,47 +29,51 @@ function Intro() {
     setLetterIntro(e.target.value);
   }
 
-  if (name) {return (<div className="main-container">
-      <div className="intro">
-        <h1>Introduction</h1>
-        <div className="flex-container">
-          <IntroNameInput name={name} handleNameChange={handleNameChange} />
+  if (name || letterIntro) {
+    return (
+      <div className="main-container">
+        <div className="intro">
+          <h1>Introduction</h1>
+          <div className="flex-container">
+            <IntroNameInput name={name} handleNameChange={handleNameChange} />
+          </div>
+          <div className="flex-container">
+            <IntroLetterIntroInput
+              letterIntro={letterIntro}
+              handleLetterIntroChange={handleLetterIntroChange}
+            />
+          </div>
         </div>
-        <div className="flex-container">
-          <IntroLetterIntroInput
-            letterIntro={letterIntro}
-            handleLetterIntroChange={handleLetterIntroChange}
-          />
-        </div>
-      </div>
-      <div className="intro-render">
-        <TemplateA4 name={name}/>
-      </div>
-    </div>
-  )} return(
-    <div className="main-container">
-      <div className="intro">
-        <h1>Introduction</h1>
-        <div className="flex-container">
-          <IntroNameInput name={name} handleNameChange={handleNameChange} />
-        </div>
-        <div className="flex-container">
-          <IntroLetterIntroInput
-            letterIntro={letterIntro}
-            handleLetterIntroChange={handleLetterIntroChange}
-          />
+        <div className="intro-render">
+          <TemplateA4 name={name} letterIntro={letterIntro}/>
         </div>
       </div>
-      <div className="intro-render">
-        <TemplateA4/>
+    );
+  } else {
+    return (
+      <div className="main-container">
+        <div className="intro">
+          <h1>Introduction</h1>
+          <div className="flex-container">
+            <IntroNameInput name={name} handleNameChange={handleNameChange} />
+          </div>
+          <div className="flex-container">
+            <IntroLetterIntroInput
+              letterIntro={letterIntro}
+              handleLetterIntroChange={handleLetterIntroChange}
+            />
+          </div>
+        </div>
+        <div className="intro-render">
+          <TemplateA4 />
+        </div>
       </div>
-    </div>
-  )
-
+    );
+  }
 
   // return (
   //   if (isLoggedIn) { return <UserGreeting />; } return <GuestGreeting />;
-    
+
   // );
 }
 

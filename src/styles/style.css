@@ -6,12 +6,12 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
-    width: 40vw;
+    min-width: 210mm;
 }
 
 .intro-container input,
 .intro-container textarea {
-    width: 20vw;
+    width: 50vw; 
 }
 
 .flex-container {
