@@ -2,20 +2,51 @@ import { useState } from "react";
 import "../styles/style.css";
 import "../styles/templateA4Styles.css";
 
+let cvDefault = {
+  name: "Michael Weber",
+  phoneNumber: "+4917642999930",
+  webSite: "openWingProject.com",
+  email: "webermichael@openwingproject.com",
+  letterTitle: "Bewerbungsschreiben zum Anfänger Oberboss bei Ihnen,",
+  letterIntro:
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur enim, corrupti qui dicta suscipit voluptate labore culpa animi quo, hic harum commodi modi dolore soluta sed velit odit nihil? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur enim, corrupti qui dicta suscipit voluptate labore culpa animi quo, hic harum commodi modi dolore soluta sed velit odit nihil?",
+  letterEdu:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus neque, a sed debitis alias fugit ullam explicabo qui maxime deleniti et adipisci. Id omnis magni aliquam blanditiis tempore consequatur hic quod fuga perferendis, velit eaque temporibus voluptatibus natus veritatis voluptate, dolorum fugiat dolores amet nisi in? Tempore voluptatibus assumenda, velit nam quae recusandae sint autem, facilis nesciunt voluptate aliquam nisi cupiditate est voluptas rerum ipsam facere expedita numquam vel?",
+  letterExp:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus neque, a sed debitis alias fugit ullam explicabo qui maxime deleniti et adipisci. Id omnis magni aliquam blanditiis tempore consequatur hic quod fuga perferendis, velit eaque temporibus voluptatibus natus veritatis voluptate, dolorum fugiat dolores amet nisi in? Tempore voluptatibus assumenda, velit nam quae recusandae sint autem, facilis nesciunt voluptate aliquam nisi cupiditate est voluptas rerum ipsam facere expedita numquam vel?",
+  address: "Hauptstr. 21, 96178 Pommersfelden, Deutschland",
+};
+
 function Intro() {
   let [name, setName] = useState("");
-  let [purpose, setPurpose] = useState("");
+  let [letterIntro, setLetterIntro] = useState("");
 
   function handleNameChange(e) {
     setName(e.target.value);
   }
 
-  function handlePurposeChange(e) {
-    setPurpose(e.target.value);
+  function handleLetterIntroChange(e) {
+    setLetterIntro(e.target.value);
   }
-  
 
-  return (
+  if (name) {return (<div className="main-container">
+      <div className="intro">
+        <h1>Introduction</h1>
+        <div className="flex-container">
+          <IntroNameInput name={name} handleNameChange={handleNameChange} />
+        </div>
+        <div className="flex-container">
+          <IntroLetterIntroInput
+            letterIntro={letterIntro}
+            handleLetterIntroChange={handleLetterIntroChange}
+          />
+        </div>
+      </div>
+      <div className="intro-render">
+        <TemplateA4 name={name}/>
+      </div>
+    </div>
+  )} return(
     <div className="main-container">
       <div className="intro">
         <h1>Introduction</h1>
@@ -23,73 +54,75 @@ function Intro() {
           <IntroNameInput name={name} handleNameChange={handleNameChange} />
         </div>
         <div className="flex-container">
-          <IntroPurposeInput
-            purpose={purpose}
-            handlePurposeChange={handlePurposeChange}
+          <IntroLetterIntroInput
+            letterIntro={letterIntro}
+            handleLetterIntroChange={handleLetterIntroChange}
           />
         </div>
       </div>
       <div className="intro-render">
-        <TemplateA4 name={name} purpose={purpose}/>
+        <TemplateA4/>
       </div>
     </div>
-  );
+  )
+
+
+  // return (
+  //   if (isLoggedIn) { return <UserGreeting />; } return <GuestGreeting />;
+    
+  // );
 }
 
-function TemplateA4({ name, purpose }) {
+function TemplateA4({
+  name = cvDefault.name,
+  phoneNumber = cvDefault.phoneNumber,
+  webSite = cvDefault.webSite,
+  email = cvDefault.email,
+  letterTitle = cvDefault.letterTitle,
+  letterIntro = cvDefault.letterIntro,
+  letterEdu = cvDefault.letterEdu,
+  letterExp = cvDefault.letterExp,
+  address = cvDefault.address,
+}) {
   return (
     <div className="a4-page">
       <section className="contact-container">
         <div className="contact-item">
           <img
-            src="../public/img/elderly_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            src="../img/elderly_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
             alt="Person icon"
           />
-          <p>Michael Weber</p>
+          <p>{name}</p>
         </div>
         <div className="contact-item">
-          <img src="../public/img/phone-call.svg" alt="Phone icon" />
-          <p>+49 176 42986876876</p>
+          <img src="../img/phone-call.svg" alt="Phone icon" />
+          <p>{phoneNumber}</p>
         </div>
         <div className="contact-item">
           <img
-            src="../public/img/local_convenience_store_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            src="../img/local_convenience_store_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
             alt="Homepage icon"
           />
-          <a href="https://www.openwingproject.com">openWingProject.com</a>
+          <a href="https://www.openwingproject.com">{webSite}</a>
         </div>
         <div className="contact-item">
-          <img src="../public/img/mail.svg" alt="Mail icon" />
-          <a href="mailto:webermichael@openwingproject.com">webermichael@openwingproject.com</a>
+          <img src="../img/mail.svg" alt="Mail icon" />
+          <a href="mailto:webermichael@openwingproject.com">{email}</a>
         </div>
       </section>
       <section className="intro">
-        <h1>Bewerbungsschreiben zum Anfänger Oberboss bei Ihnen,</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur
-          enim, corrupti qui dicta suscipit voluptate labore culpa animi quo,
-          hic harum commodi modi dolore soluta sed velit odit nihil?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt optio rem
-          numquam? Praesentium dolorum quibusdam veritatis nemo quia nulla, est
-          magnam alias suscipit eum amet voluptatem exercitationem labore quam
-          molestias eveniet, rem laborum odit consectetur expedita at dicta!
-          Culpa, vitae hic. Rem necessitatibus, recusandae eligendi et molestias
-          similique repellendus iure?
-        </p>
+        <h1>{letterTitle}</h1>
+        <p>{letterIntro}</p>
       </section>
       <section className="edu">
         <h2>Relevante Bildung</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus neque, a sed debitis alias fugit ullam explicabo qui maxime deleniti et adipisci. Id omnis magni aliquam blanditiis tempore consequatur hic quod fuga perferendis, velit eaque temporibus voluptatibus natus veritatis voluptate, dolorum fugiat dolores amet nisi in? Tempore voluptatibus assumenda, velit nam quae recusandae sint autem, facilis nesciunt voluptate aliquam nisi cupiditate est voluptas rerum ipsam facere expedita numquam vel?</p>
+        <p>{letterEdu}</p>
       </section>
       <section className="exp">
         <h2>Erfahrung</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum minus quam nostrum in. Dolores autem numquam quis exercitationem, quo enim fugit aliquid itaque necessitatibus beatae reprehenderit dolorem alias voluptatem iusto voluptatum ullam facere culpa veritatis atque? Vitae possimus eos cupiditate, esse vero soluta sunt earum quam, est omnis quas illum!</p>
+        <p>{letterExp}</p>
       </section>
-      <footer>
-        Hauptstr. 11, 96168 Niederfurzheim, Deutschland
-      </footer>
+      <footer>{address}</footer>
     </div>
   );
 }
@@ -110,7 +143,7 @@ function IntroNameInput({ name, handleNameChange }) {
   );
 }
 
-function IntroPurposeInput({ purpose, handlePurposeChange }) {
+function IntroLetterIntroInput({ letterIntro, handleLetterIntroChange }) {
   return (
     <div className="intro-purpose-input">
       <div className="intro-container">
@@ -118,8 +151,8 @@ function IntroPurposeInput({ purpose, handlePurposeChange }) {
         <textarea
           rows={10}
           placeholder="Please, enter the purpose for writing this letter:"
-          value={purpose}
-          onChange={handlePurposeChange}
+          value={letterIntro}
+          onChange={handleLetterIntroChange}
         />
       </div>
     </div>
@@ -134,12 +167,12 @@ function IntroNameRender({ name }) {
   );
 }
 
-function IntroPurposeRender({ purpose }) {
+function IntroLetterIntroRender({ letterIntro }) {
   return (
     <div className="intro-render">
-      <h1>{purpose}</h1>
+      <h1>{letterIntro}</h1>
     </div>
   );
 }
 
-export { Intro, IntroNameRender, IntroPurposeRender };
+export { Intro, IntroNameRender, IntroLetterIntroRender };
