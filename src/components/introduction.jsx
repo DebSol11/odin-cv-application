@@ -20,6 +20,8 @@ let cvDefault = {
 function Intro() {
   let [name, setName] = useState("");
   let [letterIntro, setLetterIntro] = useState("");
+  let [letterEdu, setLetterEdu] = useState("");
+  let [letterExp, setLetterExp] = useState("");
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -29,7 +31,15 @@ function Intro() {
     setLetterIntro(e.target.value);
   }
 
-  if (name || letterIntro) {
+  function handleLetterEduChange(e) {
+    setLetterEdu(e.target.value);
+  }
+
+  function handleLetterExpChange(e) {
+    setLetterExp(e.target.value);
+  }
+
+  if (name || letterIntro || letterEdu || letterExp) {
     return (
       <div className="main-container">
         <div className="intro">
@@ -44,8 +54,27 @@ function Intro() {
             />
           </div>
         </div>
+        <h1>Education</h1>
+        <div className="flex-container">
+          <IntroLetterEduInput
+            letterEdu={letterEdu}
+            handleLetterEduChange={handleLetterEduChange}
+          />
+        </div>
+        <h1>Experiences</h1>
+        <div className="flex-container">
+          <IntroLetterExpInput
+            letterExp={letterExp}
+            handleLetterExpChange={handleLetterExpChange}
+          />
+        </div>
         <div className="intro-render">
-          <TemplateA4 name={name} letterIntro={letterIntro}/>
+          <TemplateA4
+            name={name}
+            letterIntro={letterIntro}
+            letterEdu={letterEdu}
+            letterExp={letterExp}
+          />
         </div>
       </div>
     );
@@ -64,17 +93,26 @@ function Intro() {
             />
           </div>
         </div>
+        <h1>Education</h1>
+        <div className="flex-container">
+          <IntroLetterEduInput
+            letterEdu={letterEdu}
+            handleLetterEduChange={handleLetterEduChange}
+          />
+        </div>
+        <h1>Experiences</h1>
+        <div className="flex-container">
+          <IntroLetterExpInput
+            letterExp={letterExp}
+            handleLetterExpChange={handleLetterExpChange}
+          />
+        </div>
         <div className="intro-render">
           <TemplateA4 />
         </div>
       </div>
     );
   }
-
-  // return (
-  //   if (isLoggedIn) { return <UserGreeting />; } return <GuestGreeting />;
-
-  // );
 }
 
 function TemplateA4({
@@ -163,20 +201,52 @@ function IntroLetterIntroInput({ letterIntro, handleLetterIntroChange }) {
   );
 }
 
-function IntroNameRender({ name }) {
+function IntroLetterEduInput({ letterEdu, handleLetterEduChange }) {
   return (
-    <div className="intro-render">
-      <h1>{name}</h1>
+    <div className="letter-edu-input">
+      <div className="intro-container">
+        <label htmlFor="edu">Education: </label>
+        <textarea
+          rows={10}
+          placeholder="Please, enter Subjects you loved learning and what you would still like to learn: "
+          value={letterEdu}
+          onChange={handleLetterEduChange}
+        />
+      </div>
     </div>
   );
 }
 
-function IntroLetterIntroRender({ letterIntro }) {
+function IntroLetterExpInput({ letterExp, handleLetterExpChange }) {
   return (
-    <div className="intro-render">
-      <h1>{letterIntro}</h1>
+    <div className="letter-exp-input">
+      <div className="intro-container">
+        <label htmlFor="exp">Experience: </label>
+        <textarea
+          rows={10}
+          placeholder="Please enter some tasks, projects, processes you really enjoyed in the pastand some you are looking forward to tackle: "
+          value={letterExp}
+          onChange={handleLetterExpChange}
+        />
+      </div>
     </div>
   );
 }
 
-export { Intro, IntroNameRender, IntroLetterIntroRender };
+// function IntroNameRender({ name }) {
+//   return (
+//     <div className="intro-render">
+//       <h1>{name}</h1>
+//     </div>
+//   );
+// }
+
+// function IntroLetterIntroRender({ letterIntro }) {
+//   return (
+//     <div className="intro-render">
+//       <h1>{letterIntro}</h1>
+//     </div>
+//   );
+// }
+
+export { Intro };
