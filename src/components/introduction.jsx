@@ -3,10 +3,10 @@ import "../styles/style.css";
 import "../styles/templateA4Styles.css";
 
 let cvDefault = {
-  name: "Michael Weber",
-  phoneNumber: "+4917642999930",
-  webSite: "openWingProject.com",
-  email: "webermichael@openwingproject.com",
+  name: "Penisberger Michael Karl Heinz Weber",
+  phoneNumber: "+491764908970",
+  webSite: "zipfelgipfel.com",
+  email: "weberameise@heizweinzmein.com",
   letterTitle: "Bewerbungsschreiben zum Anfänger Oberboss bei Ihnen,",
   letterIntro:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur enim, corrupti qui dicta suscipit voluptate labore culpa animi quo, hic harum commodi modi dolore soluta sed velit odit nihil? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde tenetur enim, corrupti qui dicta suscipit voluptate labore culpa animi quo, hic harum commodi modi dolore soluta sed velit odit nihil?",
@@ -14,7 +14,7 @@ let cvDefault = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus neque, a sed debitis alias fugit ullam explicabo qui maxime deleniti et adipisci. Id omnis magni aliquam blanditiis tempore consequatur hic quod fuga perferendis, velit eaque temporibus voluptatibus natus veritatis voluptate, dolorum fugiat dolores amet nisi in? Tempore voluptatibus assumenda, velit nam quae recusandae sint autem, facilis nesciunt voluptate aliquam nisi cupiditate est voluptas rerum ipsam facere expedita numquam vel?",
   letterExp:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus neque, a sed debitis alias fugit ullam explicabo qui maxime deleniti et adipisci. Id omnis magni aliquam blanditiis tempore consequatur hic quod fuga perferendis, velit eaque temporibus voluptatibus natus veritatis voluptate, dolorum fugiat dolores amet nisi in? Tempore voluptatibus assumenda, velit nam quae recusandae sint autem, facilis nesciunt voluptate aliquam nisi cupiditate est voluptas rerum ipsam facere expedita numquam vel?",
-  address: "Hauptstr. 21, 96178 Pommersfelden, Deutschland",
+  address: "Furzbergweg 1, 99999 Heizgustavsgreuth, Deutschland",
 };
 
 function Intro() {
@@ -147,7 +147,7 @@ function TemplateA4({
             src="../img/local_convenience_store_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
             alt="Homepage icon"
           />
-          <a href="https://www.openwingproject.com">{webSite}</a>
+          <a href="https://www.google.com">{webSite}</a>
         </div>
         <div className="contact-item">
           <img src="../img/mail.svg" alt="Mail icon" />
