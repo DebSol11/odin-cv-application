@@ -17,3 +17,8 @@
 .flex-container {
     display: flex;
 }
+
+.important-note {
+    text-align: center;
+    margin-top: 20px;
+}

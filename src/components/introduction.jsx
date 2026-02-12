@@ -39,9 +39,10 @@ function Intro() {
     setLetterExp(e.target.value);
   }
 
-  if (name || letterIntro || letterEdu || letterExp) {
+  if (name && letterIntro && letterEdu && letterExp) {
     return (
       <div className="main-container">
+        <p className="important-note">Once all the required fields (*) are filled out, your CV will automatically be generated below</p>
         <div className="intro">
           <h1>Introduction</h1>
           <div className="flex-container">
@@ -81,6 +82,7 @@ function Intro() {
   } else {
     return (
       <div className="main-container">
+        <p className="important-note">Once all the required fields (*) are filled out, your CV will automatically be generated below</p>
         <div className="intro">
           <h1>Introduction</h1>
           <div className="flex-container">
@@ -173,7 +175,7 @@ function IntroNameInput({ name, handleNameChange }) {
   return (
     <div className="intro-name-input">
       <div className="intro-container">
-        <label htmlFor="name">Name: </label>
+        <label htmlFor="name">Name:* </label>
         <input
           type="text"
           placeholder="Please, enter your name:"
@@ -189,7 +191,7 @@ function IntroLetterIntroInput({ letterIntro, handleLetterIntroChange }) {
   return (
     <div className="intro-purpose-input">
       <div className="intro-container">
-        <label htmlFor="purpose">Purpose of writing: </label>
+        <label htmlFor="purpose">Purpose of writing:* </label>
         <textarea
           rows={10}
           placeholder="Please, enter the purpose for writing this letter:"
@@ -205,7 +207,7 @@ function IntroLetterEduInput({ letterEdu, handleLetterEduChange }) {
   return (
     <div className="letter-edu-input">
       <div className="intro-container">
-        <label htmlFor="edu">Education: </label>
+        <label htmlFor="edu">Education:* </label>
         <textarea
           rows={10}
           placeholder="Please, enter Subjects you loved learning and what you would still like to learn: "
@@ -221,7 +223,7 @@ function IntroLetterExpInput({ letterExp, handleLetterExpChange }) {
   return (
     <div className="letter-exp-input">
       <div className="intro-container">
-        <label htmlFor="exp">Experience: </label>
+        <label htmlFor="exp">Experience:* </label>
         <textarea
           rows={10}
           placeholder="Please enter some tasks, projects, processes you really enjoyed in the pastand some you are looking forward to tackle: "
